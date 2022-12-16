@@ -101,6 +101,7 @@ struct ChildView: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       VStack {
+        Text("Incrementing this number should increment the child number. Child state is computed property on Parent. 'set' in child does not get called.")
         Text("\(viewStore.number)")
         Button("Increment", action: { viewStore.send(.increment) })
       }
@@ -135,8 +136,7 @@ struct OtherView: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       VStack {
-        Text("\(viewStore.number)")
-        Button("Increment", action: { viewStore.send(.increment) })
+        Text("Please select 'Child' tab")
       }
     }
   }
